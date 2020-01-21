@@ -14,7 +14,8 @@ var leds = [];
 var colorPickers = {};
 var nextColorKey = 1;
 
-window.onerror = function myErrorHandler(errorMsg, url, lineNumber) {
+
+window.onerror = (errorMsg, url, lineNumber) => {
     document.getElementById("error-modal-text").innerText = `
         Ein unbekannter Fehler ist aufgetreten. Bitte starten Sie das Programm neu!
         Sollte dies keine Wirkung zeigen, suchen Sie bitte den nächstgelegenen Computer-Menschen
@@ -31,19 +32,22 @@ window.onerror = function myErrorHandler(errorMsg, url, lineNumber) {
 async function init() {
     // get all devices connected
     const ports = await SerialPort.list();
-    if(ports.length === 0) {
+    arduinos = ports.filter((el) => {
+        return el.manufacturer.startsWith('Arduino LLC')
+    });
+    if(arduinos.length === 0) {
         document.getElementById("error-modal-text").innerText = `
-            Es wurde kein Gerät zum Steuern der LEDs gefunden. Bitte schließen Sie ein Gerät an und starten Sie das Programm neu.
+            Es wurde kein Arduino zum Steuern der LEDs gefunden. Bitte schließen Sie ein Gerät an und starten Sie das Programm neu.
         `.replace(/\n/g, "");
         $("#error-modal").modal("show");
-    } else if(ports.length > 1) {
+    } else if(arduinos.length > 1) {
         document.getElementById("error-modal-text").innerText = `
-            Es wurden ${ports.length} Geräte zum Steuern der LEDs gefunden. Bitte entfernen Sie ein oder mehrere Geräte und starten Sie das Programm neu.
+            Es wurden ${arduinos.length} Arduinos zum Steuern der LEDs gefunden. Bitte entfernen Sie ein oder mehrere Geräte und starten Sie das Programm neu.
         `.replace(/\n/g, "");
         $("#error-modal").modal("show");
     } else {
         // if only one device is connected, enable communication
-        port = new SerialPort(ports[0].path, { baudRate: 9600 });
+        port = new SerialPort(arduinos[0].path, { baudRate: 9600 });
         port.pipe(parser);
         parser.on('data', line => {
             console.log(`> ${line}`);
@@ -53,7 +57,7 @@ async function init() {
         });
         port.on('open', () => {
             document.getElementById("port-alert").innerText = `
-                Verbunden mit ${ports[0].path}
+                Verbunden mit ${arduinos[0].path}
             `.replace(/\n/g, "");
             $("#port-alert").fadeTo(3000, 500);
         });
