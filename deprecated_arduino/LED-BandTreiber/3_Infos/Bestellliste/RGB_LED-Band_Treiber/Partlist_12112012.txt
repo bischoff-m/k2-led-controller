@@ -1,0 +1,91 @@
+Partlist
+
+Exported from RGB_LED_Band_Treiber.sch at 12.11.2012 19:24:03 
+
+EAGLE Version 4.16 Copyright (c) 1988-2005 CadSoft
+
+Part     Value                  Device                 Package       Library        Sheet
+
+C1       10n                    C-EUC0805              C0805         rcl            1
+C2       20p                    C-EUC0805              C0805         rcl            1
+C3       20p                    C-EUC0805              C0805         rcl            1
+C4       20p                    C-EUC0805              C0805         rcl            1
+C5       20p                    C-EUC0805              C0805         rcl            1
+C6       10n                    C-EUC0805              C0805         rcl            1
+C7                              C-EUC1206              C1206         rcl            1
+C8                              C-EUC1206              C1206         rcl            1
+C9                              C-EUC1206              C1206         rcl            1
+C10                             C-EUC0805              C0805         rcl            1
+C11                             C-EUC0805              C0805         rcl            1
+C12                             C-EUC0805              C0805         rcl            1
+C13      100n                   C-EUC0805              C0805         rcl            2
+C14      100n                   C-EUC0805              C0805         rcl            2
+C15      4u7                    C-EUC1206              C1206         rcl            2
+C16      100n                   C-EUC0805              C0805         rcl            2
+C17      100n                   C-EUC0805              C0805         rcl            2
+C18      0.33u                  C-EUC1206              C1206         rcl            1
+C19      100n                   C-EUC0805              C0805         rcl            1
+C20      470u                   CPOL-EUE5-10.5         E5-10,5       rcl            3
+C21      470u                   CPOL-EUE5-10.5         E5-10,5       rcl            3
+C22      470u                   CPOL-EUE5-10.5         E5-10,5       rcl            3
+C24      10u                    C-EUC0805              C0805         rcl            3
+C25      10u                    C-EUC0805              C0805         rcl            3
+C26      10u                    C-EUC0805              C0805         rcl            3
+C27      100n                   C-EUC0805              C0805         rcl            3
+C28      10u                    C-EUC0805              C0805         rcl            3
+C29      100n                   C-EUC0805              C0805         rcl            3
+C30      10u                    C-EUC0805              C0805         rcl            3
+C31      100n                   C-EUC0805              C0805         rcl            3
+C32      10u                    C-EUC0805              C0805         rcl            3
+CON1     RJ45                   RJ45                   RJ45          marcus         1
+CON2     RJ45                   RJ45                   RJ45          marcus         1
+CON3     WAGO-236-4CON-RASTER10 WAGO-236-4CON-RASTER10 WAGO236_10_4  marcus         3
+CON4     WAGO-236-4CON-RASTER7  WAGO-236-4CON-RASTER7  WAGO236_7.5_4 marcus         3
+D1       BAS85                  DIODE-SOD80C           SOD80C        diode          1
+D2       BAS85                  DIODE-SOD80C           SOD80C        diode          1
+D3       B330A-13-F             B330A-13-F             SMA           marcus         3
+D4       B330A-13-F             B330A-13-F             SMA           marcus         3
+D5       B330A-13-F             B330A-13-F             SMA           marcus         3
+DIS1     7SEGMENT_10MM          7SEGMENT_10MM          HDSP-E        marcus         1
+F1       BEAD-2706              BEAD-2706              L2706         marcus         2
+F2       BEAD-2706              BEAD-2706              L2706         marcus         1
+F3       BEAD-2706              BEAD-2706              L2706         marcus         1
+IC1      MEGA16-A               MEGA16-A               TQFP44        atmel          1
+IC2      MCP2515                MCP2515                SO18W         marcus         1
+IC3      PCA82C250              PCA82C250              SO08          marcus         1
+IC4      FT232RL                FT232RL                SSOP28        marcus         2
+IC5      7805                   78XXL                  78XXL         v-reg          1
+IC6      MIC4422                MIC4422                SO08          marcus         3
+IC7      MIC4422                MIC4422                SO08          marcus         3
+IC8      MIC4422                MIC4422                SO08          marcus         3
+JP1                             JP1E                   JP1           jumper         1
+LED1                            LEDCHIPLED_0805        CHIPLED_0805  led            2
+LED2                            LEDCHIPLED_0805        CHIPLED_0805  led            2
+LED3                            LEDCHIP-LED0805        CHIP-LED0805  led            1
+M1       IRLR8726               IRLR8726               D-PAK         marcus         3
+M2       IRLR8726               IRLR8726               D-PAK         marcus         3
+M3       IRLR8726               IRLR8726               D-PAK         marcus         3
+OPTO1    ADUM1201               ADUM1201               SO08          marcus         2
+Q1                              CRYTALHC49S            HC49/S        crystal        1
+Q2                              CRYTALHC49S            HC49/S        crystal        1
+R1       10K                    R-EU_R0805             R0805         rcl            1
+R2       10K                    R-EU_R0805             R0805         rcl            1
+R3                              R-EU_R0805             R0805         rcl            1
+R4                              R-EU_R0805             R0805         rcl            1
+R5                              R-EU_R0805             R0805         rcl            1
+R6                              R-EU_R0805             R0805         rcl            1
+R7                              R-EU_R0805             R0805         rcl            1
+R8                              R-EU_R0805             R0805         rcl            1
+R9                              R-EU_R0805             R0805         rcl            1
+R10                             R-EU_R0805             R0805         rcl            1
+R11                             R-EU_R0805             R0805         rcl            1
+R12      10k                    R-EU_R0805             R0805         rcl            2
+R13                             R-EU_R0805             R0805         rcl            2
+R14                             R-EU_R0805             R0805         rcl            2
+R15      124R                   R-EU_R0805             R0805         rcl            1
+R16                             R-EU_R0805             R0805         rcl            1
+R_G_B                           R-EU_R0805             R0805         rcl            3
+R_G_G                           R-EU_R0805             R0805         rcl            3
+R_G_R                           R-EU_R0805             R0805         rcl            3
+SV1                             ML6                    ML6           con-harting-ml 1
+X1                              PN61729                PN61729       con-berg       2

@@ -1,0 +1,43 @@
+{
+  "name": "led-controller",
+  "version": "1.0.0",
+  "description": "LED Controller",
+  "author": "Marco Bischoff",
+  "license": "MIT",
+  "repository": "https://github.com/bischoff-m/k2-led-controller.git",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "install": "electron-rebuild",
+    "pack": "electron-builder --dir",
+    "dist:linux": "electron-builder --linux",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "@jaames/iro": "^4.5.3",
+    "@serialport/parser-readline": "^8.0.6",
+    "bootstrap": "^4.4.1",
+    "electron-builder": "^22.2.0",
+    "electron-json-storage": "^4.1.8",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.0",
+    "serialport": "^8.0.6"
+  },
+  "devDependencies": {
+    "electron": "^7.1.7",
+    "electron-rebuild": "^1.8.8"
+  },
+  "build": {
+    "appId": "com.electron.${name}",
+    "productName": "K2 Bar Led Controller",
+    "directory": {
+      "output": "build"
+    },
+    "linux": {
+      "target": [
+        "deb"
+      ],
+      "categroy": "Utility"
+    }
+  }
+}

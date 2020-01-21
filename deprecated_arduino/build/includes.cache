@@ -1,0 +1,22 @@
+[
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino"
+  },
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\variants\\standard"
+  },
+  {
+    "Sourcefile": "c:\\Users\\Marco\\OneDrive - rwth-aachen.de\\Projekte\\Arduino\\kawo2_led_control\\build\\sketch\\led_controller.ino.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "c:\\Users\\Marco\\OneDrive - rwth-aachen.de\\Projekte\\Arduino\\kawo2_led_control\\build\\sketch\\DmxSimple-modified.cpp",
+    "Include": "",
+    "Includepath": null
+  }
+]

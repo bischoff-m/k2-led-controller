@@ -1,0 +1,6 @@
+{
+    "programmer": "AVRISP mkII",
+    "board": "arduino:avr:uno",
+    "port": "COM4",
+    "sketch": "arduino_code\\led_controller\\led_controller.ino"
+}

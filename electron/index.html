@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined">
+        <link rel="stylesheet" href="./style.css">
+        <script src="./index.js"></script>
+        
+        <title>LED Controller</title>
+    </head>
+    <body onload="init()">
+        <div id="main-container">
+            <div id="port-alert" class="alert alert-success fade hide" role="alert"></div>
+
+            <div class="header">Farben</div>
+            <div id="color-tiles" class="item-container">
+                <!-- color tiles get inserted here by javascript (index.js) -->
+                <div
+                    id="add-color-tile"
+                    class="color-tile" 
+                    onclick="onAddColorTile()" 
+                    onmouseover="onMouseOverIcon(this, true)" 
+                    onmouseout="onMouseOutIcon(this, true)">
+                    <i class="centered material-icons">add_circle_outline</i>
+                </div>
+            </div>
+
+            <div class="header">LEDs</div>
+            <div id="led-tiles" class="item-container">
+                <!-- led tiles get inserted here by javascript (index.js) -->
+            </div>
+
+        </div>
+
+
+
+
+        <!-- popup form to input hex value -->
+        <div id="hex-input-modal" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+                <form id="hex-modal-form">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Farbe ändern</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Bitte geben Sie einen Farbcode im HEX-Format ein.</p>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">#</div>
+                                </div>
+                                <input type="text" class="form-control" id="hex-modal-input" placeholder="HEX-Wert" required>
+                                <div id="hex-modal-feedback" class="invalid-feedback">
+                                    Ungültiger Wert.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="hex-modal-submit" type="submit" class="btn btn-success">Ändern</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Schlie&szlig;en</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- popup warning for unwanted color deletion -->
+        <div id="color-deleted-modal" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Farbe löschen</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Die Farbe kann nicht gelöscht werden, da sie noch mindestens einer LED zugewiesen ist.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Schlie&szlig;en</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- popup warning for all errors -->
+        <div id="error-modal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Fataler Fehler</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="error-modal-text">Fehler oder wat?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" onclick="window.location.reload()">Neustart</button>
+                        <button type="button" class="btn btn-danger" onclick="window.close()">Beenden</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Schlie&szlig;en</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

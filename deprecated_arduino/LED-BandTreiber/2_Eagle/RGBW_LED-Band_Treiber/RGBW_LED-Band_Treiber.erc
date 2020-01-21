@@ -1,0 +1,19 @@
+EAGLE Version 4.16 Copyright (c) 1988-2005 CadSoft
+
+Electrical Rule Check für D:/Marcus/Projekte/RGB_LED_Band_treiber/RGBW_LED-Band_Treiber/RGBW_LED-Band_Treiber.sch am 21.04.2013 19:02:55 
+
+FEHLER: Seite 1/2: kein SUPPLY für POWER-Pin IC1 AGND
+FEHLER: Seite 1/2: kein SUPPLY für POWER-Pin IC1 AVCC
+FEHLER: Seite 1/2: kein SUPPLY für POWER-Pin IC1 AREF
+WARNUNG: Seite 1/2: POWER-Pin IC1 GND1 verbunden mit GNDIO
+WARNUNG: Seite 1/2: POWER-Pin IC1 GND2 verbunden mit GNDIO
+WARNUNG: Seite 1/2: POWER-Pin IC1 VCC1 verbunden mit VCC
+WARNUNG: Seite 1/2: POWER-Pin IC1 VCC2 verbunden mit VCC
+WARNUNG: Seite 1/2: POWER-Pin IC1 GND verbunden mit GNDIO
+WARNUNG: Nur 1 Pin an Netz /SS
+WARNUNG: Seite 1/2, Netz VCC: Wire überlappt Pin an Position (2.2 4.5)
+
+Board und Schaltplan sind konsistent
+
+    3 Fehler
+    7 Warnungen

@@ -1,0 +1,74 @@
+Partlist
+
+Exported from RGBW_LED-Band_Treiber.sch at 23.04.2013 21:16:44 
+
+EAGLE Version 4.16 Copyright (c) 1988-2005 CadSoft
+
+Part     Value                  Device                 Package          Library  Sheet
+
+BEAD2    BLM21PG331             R-EU_R0805             R0805            rcl      1
+BEAD4    BLM21PG331             R-EU_R0805             R0805            rcl      2
+C1       10n                    C-EUC0805              C0805            rcl      1
+C2       33P                    C-EUC0805              C0805            rcl      1
+C3       33P                    C-EUC0805              C0805            rcl      1
+C7       100n                   C-EUC0805              C0805            rcl      1
+C10      100n                   C-EUC0805              C0805            rcl      1
+C14      100n                   C-EUC0805              C0805            rcl      2
+C15      10u                    C-EUC0805              C0805            rcl      2
+C16      470u                   CPOL-EUE5-10.5         E5-10,5          rcl      2
+C17      470u                   CPOL-EUE5-10.5         E5-10,5          rcl      2
+C20      470u                   CPOL-EUE5-10.5         E5-10,5          rcl      2
+C21      470u                   CPOL-EUE5-10.5         E5-10,5          rcl      2
+C22      470u                   CPOL-EUE5-10.5         E5-10,5          rcl      2
+C23      470u                   CPOL-EUE5-10.5         E5-10,5          rcl      2
+C24      10u                    C-EUC0805              C0805            rcl      2
+C25      10u                    C-EUC0805              C0805            rcl      2
+C26      10u                    C-EUC0805              C0805            rcl      2
+C27      100n                   C-EUC0805              C0805            rcl      2
+C28      10u                    C-EUC0805              C0805            rcl      2
+C29      100n                   C-EUC0805              C0805            rcl      2
+C30      10u                    C-EUC0805              C0805            rcl      2
+C31      100n                   C-EUC0805              C0805            rcl      2
+C32      10u                    C-EUC0805              C0805            rcl      2
+C37      100n                   C-EUC0805              C0805            rcl      1
+C38      100n                   C-EUC0805              C0805            rcl      1
+C39      10u                    C-EUC0805              C0805            rcl      2
+C40      0.33u/1u               C-EUC0805              C0805            rcl      2
+C41      100n                   C-EUC0805              C0805            rcl      2
+CON1     MM_FL_4SHOLE           MM_FL_4SHOLE           MM_FL_4G         marcus   1
+CON3     WAGO-236-6CON-4X10-2X5 WAGO-236-6CON-4X10-2X5 WAGO236_2X5_4X10 marcus   2
+CON4     WAGO-236-4CON-RASTER7  WAGO-236-4CON-RASTER7  WAGO236_7.5_4    marcus   2
+CON5     MM_FL_6S               MM_FL_6STH             MM_FL_6G         marcus   1
+CON6     RJ45_2ER_LED           RJ45_2ER_LED           RJ45_2ER_LED     marcus   1
+D2       BAS85                  DIODE-SOD80C           SOD80C           diode    1
+DB       B330A-13-F             B330A-13-F             SMA              marcus   2
+DG       B330A-13-F             B330A-13-F             SMA              marcus   2
+DR       B330A-13-F             B330A-13-F             SMA              marcus   2
+DW       B330A-13-F             B330A-13-F             SMA              marcus   2
+IC1      MEGA16-A               MEGA16-A               TQFP44           atmel    1
+IC4      MIC4422                MIC4422                SO08             marcus   2
+IC5      LT1785                 LT1785                 SO08             marcus   1
+IC6      MIC4422                MIC4422                SO08             marcus   2
+IC7      MIC4422                MIC4422                SO08             marcus   2
+IC8      MIC4422                MIC4422                SO08             marcus   2
+LED4                            LEDCHIP-LED0805        CHIP-LED0805     led      2
+MB       IRLR8726               IRLR8726               D-PAK            marcus   2
+MG       IRLR8726               IRLR8726               D-PAK            marcus   2
+MR       IRLR8726               IRLR8726               D-PAK            marcus   2
+MW       IRLR8726               IRLR8726               D-PAK            marcus   2
+Q1       8MHz                   CRYTALHC49S            HC49/S           crystal  1
+R1       10K                    R-EU_R0805             R0805            rcl      1
+R2       330R                   R-EU_R0805             R0805            rcl      1
+R3       330R                   R-EU_R0805             R0805            rcl      1
+R4       330R                   R-EU_R0805             R0805            rcl      2
+R5       10k                    R-EU_R0805             R0805            rcl      1
+R6       10k                    R-EU_R0805             R0805            rcl      1
+R7       330R                   R-EU_R0805             R0805            rcl      1
+R8       330R                   R-EU_R0805             R0805            rcl      1
+R15      124R                   R-EU_R0805             R0805            rcl      1
+REG1     SPANNUNGSREG-D-PAK     SPANNUNGSREG-D-PAK     D-PAK            marcus   2
+R_G_B    3R3                    R-EU_R0805             R0805            rcl      2
+R_G_G    3R3                    R-EU_R0805             R0805            rcl      2
+R_G_R    3R3                    R-EU_R0805             R0805            rcl      2
+R_G_W    3R3                    R-EU_R0805             R0805            rcl      2
+S1                              DIP-SCHALTERPIANO      DP_10            marcus   1
