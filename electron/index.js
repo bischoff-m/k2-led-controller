@@ -33,7 +33,7 @@ async function init() {
     // get all devices connected
     const ports = await SerialPort.list();
     arduinos = ports.filter((el) => {
-        return el.manufacturer.startsWith('Arduino LLC')
+        return el.hasOwnProperty('manufacturer') && el.manufacturer.startsWith('Arduino LLC')
     });
     if(arduinos.length === 0) {
         document.getElementById("error-modal-text").innerText = `
