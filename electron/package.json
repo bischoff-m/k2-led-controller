@@ -34,14 +34,14 @@
   "build": {
     "appId": "com.electron.${name}",
     "productName": "K2 Bar Led Controller",
-    "directory": {
+    "directories": {
       "output": "build"
     },
     "linux": {
       "target": [
         "deb"
       ],
-      "categroy": "Utility"
+      "category": "Utility"
     }
   }
 }
