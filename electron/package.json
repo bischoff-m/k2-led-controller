@@ -2,7 +2,7 @@
   "name": "led-controller",
   "version": "1.0.0",
   "description": "LED Controller",
-  "author": "Marco Bischoff",
+  "author": "Marco Bischoff <bischoff_m@aim.com>",
   "license": "MIT",
   "main": "main.js",
   "repository": {
@@ -35,7 +35,8 @@
     "appId": "com.electron.${name}",
     "productName": "K2 Bar Led Controller",
     "directories": {
-      "output": "build"
+      "output": "dist",
+      "buildResources": "build"
     },
     "linux": {
       "target": [
