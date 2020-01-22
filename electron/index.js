@@ -28,12 +28,13 @@ window.onerror = (errorMsg, url, lineNumber) => {
     return false;
 }
 
-
 async function init() {
     // get all devices connected
     const ports = await SerialPort.list();
-    arduinos = ports.filter((el) => {
-        return el.hasOwnProperty('manufacturer') && el.manufacturer.startsWith('Arduino LLC')
+    console.log('ports found:')
+    console.log(ports);
+    arduinos = ports.filter(el => {
+        return el.hasOwnProperty('manufacturer') && typeof el.manufacturer === 'string' && el.manufacturer.startsWith('Arduino')
     });
     if(arduinos.length === 0) {
         document.getElementById("error-modal-text").innerText = `
