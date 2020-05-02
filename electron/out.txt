@@ -1,0 +1,94 @@
+C:\Users\Marco\AppData\Local\Temp\vs_installershell.DMP
+
+× Rebuild Failed
+
+An unhandled error occurred inside electron-rebuild
+gyp info it worked if it ends with ok
+gyp info using node-gyp@6.1.0
+gyp info using node@12.16.3 | win32 | x64
+gyp info find Python using Python version 3.7.6 found at "C:\Program Files\Python37\python.exe"
+gyp ERR! find VS
+gyp ERR! find VS msvs_version not set from command line or npm config
+gyp ERR! find VS VCINSTALLDIR not set, not running in VS Command Prompt
+gyp ERR! find VS could not use PowerShell to find Visual Studio 2017 or newer
+gyp ERR! find VS looking for Visual Studio 2015
+gyp ERR! find VS - not found
+gyp ERR! find VS looking for Visual Studio 2013
+gyp ERR! find VS - not found
+gyp ERR! find VS
+gyp ERR! find VS **************************************************************
+gyp ERR! find VS You need to install the latest version of Visual Studio
+gyp ERR! find VS including the "Desktop development with C++" workload.
+gyp ERR! find VS For more information consult the documentation at:
+gyp ERR! find VS https://github.com/nodejs/node-gyp#on-windows
+gyp ERR! find VS **************************************************************
+gyp ERR! find VS
+gyp ERR! configure error
+gyp ERR! stack Error: Could not find any Visual Studio installation to use
+gyp ERR! stack     at VisualStudioFinder.fail (E:\Git\k2-led-controller\electron\node_modules\node-gyp\lib\find-visualstudio.js:121:47)
+gyp ERR! stack     at E:\Git\k2-led-controller\electron\node_modules\node-gyp\lib\find-visualstudio.js:74:16
+gyp ERR! stack     at E:\Git\k2-led-controller\electron\node_modules\node-gyp\lib\find-visualstudio.js:373:16
+gyp ERR! stack     at E:\Git\k2-led-controller\electron\node_modules\node-gyp\lib\util.js:54:7
+gyp ERR! stack     at E:\Git\k2-led-controller\electron\node_modules\node-gyp\lib\util.js:33:16
+gyp ERR! stack     at ChildProcess.exithandler (child_process.js:310:5)
+gyp ERR! stack     at ChildProcess.emit (events.js:310:20)
+gyp ERR! stack     at maybeClose (internal/child_process.js:1021:16)
+gyp ERR! stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:286:5)
+gyp ERR! System Windows_NT 10.0.17134
+gyp ERR! command "C:\\Program Files\\nodejs\\node.exe" "E:\\Git\\k2-led-controller\\electron\\node_modules\\node-gyp\\bin\\node-gyp.js" "rebuild" "--target=7.2.4" "--arch=x64" "--dist-url=https://www.electronjs.org/headers" "--build-from-source"
+gyp ERR! cwd E:\Git\k2-led-controller\electron\node_modules\@serialport\bindings
+gyp ERR! node -v v12.16.3
+gyp ERR! node-gyp -v v6.1.0
+gyp ERR! not ok
+
+Failed with exit code: 1
+
+Error: gyp info it worked if it ends with ok
+gyp info using node-gyp@6.1.0
+gyp info using node@12.16.3 | win32 | x64
+gyp info find Python using Python version 3.7.6 found at "C:\Program Files\Python37\python.exe"
+gyp ERR! find VS
+gyp ERR! find VS msvs_version not set from command line or npm config
+gyp ERR! find VS VCINSTALLDIR not set, not running in VS Command Prompt
+gyp ERR! find VS could not use PowerShell to find Visual Studio 2017 or newer
+gyp ERR! find VS looking for Visual Studio 2015
+gyp ERR! find VS - not found
+gyp ERR! find VS looking for Visual Studio 2013
+gyp ERR! find VS - not found
+gyp ERR! find VS
+gyp ERR! find VS **************************************************************
+gyp ERR! find VS You need to install the latest version of Visual Studio
+gyp ERR! find VS including the "Desktop development with C++" workload.
+gyp ERR! find VS For more information consult the documentation at:
+gyp ERR! find VS https://github.com/nodejs/node-gyp#on-windows
+gyp ERR! find VS **************************************************************
+gyp ERR! find VS
+gyp ERR! configure error
+gyp ERR! stack Error: Could not find any Visual Studio installation to use
+gyp ERR! stack     at VisualStudioFinder.fail (E:\Git\k2-led-controller\electron\node_modules\node-gyp\lib\find-visualstudio.js:121:47)
+gyp ERR! stack     at E:\Git\k2-led-controller\electron\node_modules\node-gyp\lib\find-visualstudio.js:74:16
+gyp ERR! stack     at E:\Git\k2-led-controller\electron\node_modules\node-gyp\lib\find-visualstudio.js:373:16
+gyp ERR! stack     at E:\Git\k2-led-controller\electron\node_modules\node-gyp\lib\util.js:54:7
+gyp ERR! stack     at E:\Git\k2-led-controller\electron\node_modules\node-gyp\lib\util.js:33:16
+gyp ERR! stack     at ChildProcess.exithandler (child_process.js:310:5)
+gyp ERR! stack     at ChildProcess.emit (events.js:310:20)
+gyp ERR! stack     at maybeClose (internal/child_process.js:1021:16)
+gyp ERR! stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:286:5)
+gyp ERR! System Windows_NT 10.0.17134
+gyp ERR! command "C:\\Program Files\\nodejs\\node.exe" "E:\\Git\\k2-led-controller\\electron\\node_modules\\node-gyp\\bin\\node-gyp.js" "rebuild" "--target=7.2.4" "--arch=x64" "--dist-url=https://www.electronjs.org/headers" "--build-from-source"
+gyp ERR! cwd E:\Git\k2-led-controller\electron\node_modules\@serialport\bindings
+gyp ERR! node -v v12.16.3
+gyp ERR! node-gyp -v v6.1.0
+gyp ERR! not ok
+
+Failed with exit code: 1
+    at SafeSubscriber._error (E:\Git\k2-led-controller\electron\node_modules\spawn-rx\lib\src\index.js:267:84)
+    at SafeSubscriber.__tryOrUnsub (E:\Git\k2-led-controller\electron\node_modules\rxjs\internal\Subscriber.js:205:16)
+    at SafeSubscriber.error (E:\Git\k2-led-controller\electron\node_modules\rxjs\internal\Subscriber.js:156:26)
+    at Subscriber._error (E:\Git\k2-led-controller\electron\node_modules\rxjs\internal\Subscriber.js:92:26)
+    at Subscriber.error (E:\Git\k2-led-controller\electron\node_modules\rxjs\internal\Subscriber.js:72:18)
+    at MapSubscriber.Subscriber._error (E:\Git\k2-led-controller\electron\node_modules\rxjs\internal\Subscriber.js:92:26)
+    at MapSubscriber.Subscriber.error (E:\Git\k2-led-controller\electron\node_modules\rxjs\internal\Subscriber.js:72:18)
+    at SafeSubscriber._next (E:\Git\k2-led-controller\electron\node_modules\spawn-rx\lib\src\index.js:242:65)
+    at SafeSubscriber.__tryOrUnsub (E:\Git\k2-led-controller\electron\node_modules\rxjs\internal\Subscriber.js:205:16)
+    at SafeSubscriber.next (E:\Git\k2-led-controller\electron\node_modules\rxjs\internal\Subscriber.js:143:22)
