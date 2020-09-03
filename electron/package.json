@@ -26,7 +26,8 @@
     "popper.js": "^1.16.0",
     "serialport": "^8.0.6",
 
-    "lodash": "^4.17.19"
+    "lodash": "^4.17.19",
+    "bl": "4.0.3"
   },
   "devDependencies": {
     "electron": "^7.1.7",
