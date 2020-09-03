@@ -1,0 +1,13 @@
+Music Matching TODO:
+
+- read Computer sound
+- transform sound to 1-D signal (maybe 2-D or 3-D signal later?)
+- do 1-D color mapping to sound
+
+GUI-Changes:
+- Sound Filters:
+    - by volume/level
+    - by certain frequency range (e.g. bass only)
+    - logarithmic/linear
+- Color Mapping:
+    - color range
