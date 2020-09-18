@@ -11,3 +11,41 @@ GUI-Changes:
     - logarithmic/linear
 - Color Mapping:
     - color range
+	
+	
+
+LEDs Schnapsregal
+
+- DMX Steuerung
+	- Kovertieren zu DMX auf Breadboard
+	- DMX endet in einem Controller
+	- Controller direkt an LED Strip angeschlossen (5V, Data, GND)
+	Vorteile:
+		- robuster, kein Repeater nötig
+		- erweiterbar
+		- jede LED einzeln steuerbar
+	Nachteile:
+		- Hardware am Arduino benötigt
+		- DMX Controller benötigt
+		- Strom Anschluss an der Theke benötigt
+	Benötigt:
+		- LED Leiste
+		- DMX Controller an der Leiste
+		- XLR Kabel
+		- Selber gebaut
+			- Sender (MAX485)
+			- Widerstand 100ohm
+			- XLR Buchse
+			- Verbindungen
+		- Fertige Lösung: GRV DMX512 (12€)
+
+- Direkter Anschluss ohne DMX
+	- 4-Pin Kabel von LED Strip direkt zum Ardunio
+	Vorteile:
+		- simpel, einfach zu implementieren
+		- keine extra Hardware
+		- günstiger
+	Nachteile:
+		- möglicherweise nicht präzise genug wegen Kabelverlusten
+		- nicht erweiterbar
+		- ganzer Streifen kann nur eine Farbe annehmen
