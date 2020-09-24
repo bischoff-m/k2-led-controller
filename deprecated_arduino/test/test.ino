@@ -1,17 +1,23 @@
-#include <DmxSimple.h>
+int redPin = 9;
+int greenPin = 10;
+int bluePin = 11;
 
 void setup() {
-  DmxSimple.usePin(3);
-  int address = 1;
-  for(int i = 0; i < 7; i++) {
-    DmxSimple.write(address + 0, 100);
-    DmxSimple.write(address + 1, 100);
-    DmxSimple.write(address + 2, 100);
-    DmxSimple.write(address + 3, 170);
-    address += 4;
-  }
+  pinMode(redPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+  pinMode(bluePin, OUTPUT);
+  digitalWrite(redPin, HIGH);
+  digitalWrite(greenPin, HIGH);
+  digitalWrite(bluePin, HIGH);
 }
 
 void loop() {
-
+  for(int helligkeit = 1; helligkeit <= 255; helligkeit++) {
+    analogWrite(redPin, helligkeit);
+    delay(1);
+  }
+  for(int helligkeit = 255; helligkeit >= 0; helligkeit--) {
+    analogWrite(redPin, helligkeit);
+    delay(1);
+  }
 }
