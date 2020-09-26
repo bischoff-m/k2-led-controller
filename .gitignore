@@ -5,3 +5,6 @@ dist/
 npm-debug.log
 yarn-error.log
 yarn.lock
+
+todo.txt
+out.txt

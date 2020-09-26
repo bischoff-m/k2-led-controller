@@ -7,3 +7,12 @@ https://github.com/PaulStoffregen/DmxSimple
 
 # Electron App
 Use yarn instead of npm
+
+To use electron-rebuild, setup your Visual Studio version via 
+```
+yarn run node-gyp configure --msvs_version=2017
+```
+or
+```
+npm config edit
+```

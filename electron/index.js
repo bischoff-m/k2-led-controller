@@ -15,6 +15,8 @@ var colorPickers = {};
 var nextColorKey = 1;
 
 
+console.log("Klappt schon mal...")
+
 window.onerror = (errorMsg, url, lineNumber) => {
     document.getElementById("error-modal-text").innerText = `
         Ein unbekannter Fehler ist aufgetreten. Bitte starten Sie das Programm neu!
