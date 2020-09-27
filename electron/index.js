@@ -50,7 +50,7 @@ async function init() {
         $("#error-modal").modal("show");
     } else {
         // if only one device is connected, enable communication
-        port = new SerialPort(arduinos[0].path, { baudRate: 9600 });
+        port = new SerialPort(arduinos[0].path, { baudRate: 115200 });
         port.pipe(parser);
         parser.on('data', line => {
             console.log(`> ${line}`);

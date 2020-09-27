@@ -4,7 +4,7 @@
  * channel i with 0 <= i < n (n is number of channels)
  * 
  * Communication:
- *  - Via Serial with Baudrate 9600
+ *  - Via Serial with Baudrate 115200
  *  - Each character transmission triggers SerialEvent() which triggers
  *    update in loop() when whole transmission is complete (ends with \n)
  *  - Syntax:
@@ -34,7 +34,7 @@ bool dataComplete = false;
 
 void setup() {
   // initialize serial port
-  Serial.begin(9600);
+  Serial.begin(115200);
   while (!Serial) continue;
 
   // reserve 600 bytes for data:
