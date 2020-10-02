@@ -23,7 +23,7 @@
 
 #include "DmxSimple-modified.h"
 
-#define PRINT_DEBUG_ENABLED false
+#define PRINT_DEBUG_ENABLED true
 
 // data input string
 String data = "";
@@ -37,7 +37,7 @@ void setup() {
   Serial.begin(115200);
   while (!Serial) continue;
 
-  // reserve 600 bytes for data:
+  // reserve 600 bytes for data
   data.reserve(600);
   DmxSimple.usePin(3);
 
@@ -74,67 +74,49 @@ void setup() {
 
 
 void loop() {
-  // wait for serial event
-  if (!dataComplete)
-    return;
-  dataComplete = false;
-  
-  /*
-    parse values and write to output
-    for each character in data
-      if char is number -> concatenated until whole number is read
-      if char is ',' or '\n' -> write parsed number to channel because whole number was read
-      else error
-  */
-  String curStr = "";
-  char curChar = data[0];
-  int curAddress = 1;
-  bool error = false;
-  for(int i = 0; i < strlen(data.c_str()); i++) {
-    curChar = data[i];
-    if(curChar >= '0' && curChar <= '9')
-      curStr += curChar;
-    else if(curChar == ',' || curChar == '\n') {
-      // parse to int and write to output
-      int value = atoi(curStr.c_str());
 
-      if(value >= 0 && value < 256 && curStr != ""){
-        DmxSimple.writeToBuffer(curAddress, value);
-        if(PRINT_DEBUG_ENABLED) {
-          Serial.print("wrote to output. value: ");
-          Serial.print(value);
-          Serial.print(", address: ");
-          Serial.println(curAddress);
-        }
-        curStr = "";
-        curAddress++;
-      }
-      else {
-        Serial.print("could not parse data, invalid value: ");
-        Serial.println(value);
-        error = true;
-        break;
-      }
-    } else {
-      Serial.print("could not parse data, invalid character: ");
-      Serial.write(curChar);
-      Serial.println();
-      error = true;
-      break;
-    }
+}
+
+/*
+  parse values and write to output
+  for each character in data
+    if char is number -> concatenated until whole number is read
+    if char is ',' or '\n' -> write parsed number to channel because whole number was read
+    else error
+*/
+void parseAndSend() {
+  if(data.length() % 2 != 0) {
+    if(PRINT_DEBUG_ENABLED)
+      Serial.println("Error: wrong length");
+    data = "";
+    return;
+  }
+  if(strspn(data.c_str(), "0123456789abcdefABCDEF") != data.length()) {
+    if(PRINT_DEBUG_ENABLED)
+      Serial.println("Error: non-hexadecimal value");
+    data = "";
+    return;
+  }
+  if(data != "000000000000FF00FF0000FFFF0000FFFF0000FFFF0000FFFF0000FF") {
+    if(PRINT_DEBUG_ENABLED)
+      Serial.println("Error: not the right string");
+    Serial.println("000000000000FF00FF0000FFFF0000FFFF0000FFFF0000FFFF0000FF");
+    Serial.println(data);
+    data = "";
+    return;
+  }
+
+  int curAddress = 1;
+  for(int i = 0; i < data.length(); i += 2) {
+    char subStr[2] = {data[i], data[i + 1]};
+    int value = (int)strtol(subStr, NULL, 16);
+    DmxSimple.writeToBuffer(curAddress, value);
+    curAddress++;
   }
 
   // empty to receive new data
   data = "";
-
-  if(!error) {
-    DmxSimple.sendData();
-    if(PRINT_DEBUG_ENABLED)
-      Serial.println("sent data to output!");
-  }
-  
-  if(PRINT_DEBUG_ENABLED)
-    Serial.println();
+  DmxSimple.sendData();
 }
 
 
@@ -144,10 +126,24 @@ void loop() {
   delay response. Multiple bytes of data may be available.
 */
 void serialEvent() {
-  while (Serial.available()) {
+  while(Serial.available()) {
     char inChar = (char)Serial.read();
-    data += inChar;
-    if (inChar == '\n')
-      dataComplete = true;
+    if(inChar == 'A') {
+      Serial.println("Stopping");
+      int count = 0;
+      int left = Serial.available();
+      while(Serial.available()) {
+        Serial.read();
+        count++;
+      }
+      Serial.print("Left: ");
+      Serial.print(count);
+      Serial.print("\t");
+      Serial.println(left);
+      while(true) ;
+    } else if(inChar == '\n')
+      parseAndSend();
+    else
+      data += inChar;
   }
 }
