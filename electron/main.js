@@ -16,6 +16,7 @@ function createWindow() {
 
   mainWindow.loadURL(url.format({
       pathname: path.join(__dirname, 'frequency_test/mm_test.html'),
+      // pathname: path.join(__dirname, 'index.html'),
       protocol: 'file:',
       slashes: true
   }))
