@@ -22,11 +22,12 @@
 
             var curHue = 0;
             var changeColor = false;
-            var send = false;
+            var isSending = false;
             const cycleDuration = 5000;
             var colorInterval = null;
             var transInterval = null;
 
+            // TODO: remove debug
             var t0 = 0;
 
             window.setVariableInterval = function(callbackFunc, timing) {
@@ -84,8 +85,7 @@
              * @param   {number}  l       The lightness
              * @return  {Array}           The RGB representation
              */
-            function hslToRgb(hsl){
-                var h = hsl.h / 360, s = hsl.s, l = hsl.l;
+            function hslToRgb({h, s, l}) {
                 var r, g, b;
 
                 if(s == 0) {
@@ -129,8 +129,9 @@
                     port.pipe(parser);
                     parser.on('data', line => {
                         console.log(`> ${line}`);
-                        line = line.substring(0, line.length - 1);
 
+                        // TODO: remove debug
+                        line = line.substring(0, line.length - 1);
                         if(line === 'received') {
                             console.log(1000/(performance.now() - t0) + " Hz");
                         }
@@ -141,65 +142,51 @@
                 }
             }
 
-            
-
-            function updateGUI1() {
-                const hslColor = {h: curHue, s: 1, l: 0.5}
-                const hslGrey = {h: curHue, s: 0, l: 0.5}
-                const rgb = hslToRgb(hslColor);
-
-                // set color of icon
-                var colorDiv = document.getElementById("color");
-                colorDiv.style = `background-color: rgb(${rgb.r},${rgb.g},${rgb.b})`;
-                // colorDiv.style = `background-color: hsl(${curHue},100%,50%)`;
-
-                // display non-rgb leds as grayscale
-                var isRgb = Array(6).fill(true).concat(Array(5).fill(false));
-                var outputData = Array(28).fill(0);
-                var channelIndexRgb = 4;
-                var channelIndexWhite = 11;
-
-                for (let index = 0; index < 11; index++) {
-                    // set data to output to serial port
-                    if(isRgb[index]) {
-                        if(index === 0) {
-                            // channels r and b of first rgb led are switched
-                            outputData[channelIndexRgb] = rgb.b;
-                            outputData[channelIndexRgb + 1] = rgb.g;
-                            outputData[channelIndexRgb + 2] = rgb.r;
-                        } else {
-                            outputData[channelIndexRgb] = rgb.r;
-                            outputData[channelIndexRgb + 1] = rgb.g;
-                            outputData[channelIndexRgb + 2] = rgb.b;
-                        }
-                        channelIndexRgb += 4;
-                    } else {
-                        outputData[channelIndexWhite] = 255;
-                        channelIndexWhite += 4;
-                    }
-                }
-                
-                // write data to serial port
-                port.write(outputData.join(",") + "\n", error => {
-                    if(error)
-                        throw error;
-                });
-            }
-
             function updateGUI() {
-                const hslColor = {h: curHue, s: 1, l: 0.5}
-                const hslGrey = {h: curHue, s: 0, l: 0.5}
-                const rgb = hslToRgb(hslColor);
+                const rgb = hslToRgb({h: curHue / 360, s: 1, l: 0.5});
 
                 // set color of icon
                 var colorDiv = document.getElementById("color");
                 colorDiv.style = `background-color: rgb(${rgb.r},${rgb.g},${rgb.b})`;
 
-                var data = "00000000 0000FF 00 FF0000 FF FF0000 FF FF0000 FF FF0000 FF FF0000 FF";
-                data = data.replace(/ /g,'');
+                var channelMap = Array(28).fill("");
+
+                // channels r and b of first rgb led are switched
+                // display non-rgb leds as grayscale
+                channelMap[0] = 0;
+                channelMap[1] = 0;
+                channelMap[2] = 0;
+                channelMap[3] = 0;
+                channelMap[4] = rgb.b;
+                channelMap[5] = rgb.g;
+                channelMap[6] = rgb.r;
+                channelMap[7] = 0;
+                channelMap[8] = rgb.r;
+                channelMap[9] = rgb.g;
+                channelMap[10] = rgb.b;
+                channelMap[11] = 255;
+                channelMap[12] = rgb.r;
+                channelMap[13] = rgb.g;
+                channelMap[14] = rgb.b;
+                channelMap[15] = 255;
+                channelMap[16] = rgb.r;
+                channelMap[17] = rgb.g;
+                channelMap[18] = rgb.b;
+                channelMap[19] = 255;
+                channelMap[20] = rgb.r;
+                channelMap[21] = rgb.g;
+                channelMap[22] = rgb.b;
+                channelMap[23] = 255;
+                channelMap[24] = rgb.r;
+                channelMap[25] = rgb.g;
+                channelMap[26] = rgb.b;
+                channelMap[27] = 255;
+                
+                var rgbToHex = val => val.toString(16).padStart(2, '0');
+                var outData = channelMap.map(rgbToHex).join("") + "\n";
                 
                 // write data to serial port
-                port.write(data + "\n", error => {
+                port.write(outData, error => {
                     if(error)
                         throw error;
                 });
@@ -218,14 +205,14 @@
 
             function sendStop() {
                 // write data to serial port
-                port.write("A", error => {
+                port.write("X", error => {
                     if(error)
                         throw error;
                 });
             }
 
             function setTransmission() {
-                if(send) {
+                if(isSending) {
                     if(transInterval != null) {
                         transInterval.stop();
                     }
@@ -233,6 +220,9 @@
                 } else {
                     if(transInterval == null) {
                         transInterval = setVariableInterval(() => {
+                            // TODO: remove debug
+                            t0 = performance.now();
+
                             updateGUI();
                             const frequency = document.getElementById("linSlide").value;
                             document.getElementById('freq').innerHTML = frequency + " Hz";
@@ -243,10 +233,7 @@
                     }
                     document.getElementById('transspan').innerHTML = 'Stop Transmission';
                 }
-                send = !send;
-                
-                // t0 = performance.now();
-                // updateGUI();
+                isSending = !isSending;
             }
 
         </script>

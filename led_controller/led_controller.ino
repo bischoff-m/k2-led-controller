@@ -1,4 +1,6 @@
 /**
+ * TODO: rewrite doc
+ * 
  * This program uses DmxSimple to contol LEDs at K2 Bar.
  * It sends multiple values v_i with 0 <= v_i <= 255 to the corresponding
  * channel i with 0 <= i < n (n is number of channels)
@@ -23,7 +25,7 @@
 
 #include "DmxSimple-modified.h"
 
-#define PRINT_DEBUG_ENABLED true
+#define PRINT_DEBUG_ENABLED false
 
 // data input string
 String data = "";
@@ -72,10 +74,39 @@ void setup() {
   DmxSimple.sendData();
 }
 
-
 void loop() {
 
 }
+
+/*
+  SerialEvent occurs whenever a new data comes in the hardware serial RX. This
+  routine is run between each time loop() runs, so using delay inside loop can
+  delay response. Multiple bytes of data may be available.
+*/
+void serialEvent() {
+  while(Serial.available()) {
+    char inChar = (char)Serial.read();
+    // TODO: remove 'X' case
+    if(inChar == 'X') {
+      Serial.println("Stopping");
+      int count = 0;
+      int left = Serial.available();
+      while(Serial.available()) {
+        Serial.read();
+        count++;
+      }
+      Serial.print("Left: ");
+      Serial.print(count);
+      Serial.print("\t");
+      Serial.println(left);
+      while(true) ;
+    } else if(inChar == '\n')
+      parseAndSend();
+    else
+      data += inChar;
+  }
+}
+
 
 /*
   parse values and write to output
@@ -97,10 +128,11 @@ void parseAndSend() {
     data = "";
     return;
   }
-  if(data != "000000000000FF00FF0000FFFF0000FFFF0000FFFF0000FFFF0000FF") {
+
+  // TODO: remove case for better expandability
+  if(data.length() != 56) {
     if(PRINT_DEBUG_ENABLED)
-      Serial.println("Error: not the right string");
-    Serial.println("000000000000FF00FF0000FFFF0000FFFF0000FFFF0000FFFF0000FF");
+      Serial.println("Error: not 56 chars long");
     Serial.println(data);
     data = "";
     return;
@@ -117,33 +149,4 @@ void parseAndSend() {
   // empty to receive new data
   data = "";
   DmxSimple.sendData();
-}
-
-
-/*
-  SerialEvent occurs whenever a new data comes in the hardware serial RX. This
-  routine is run between each time loop() runs, so using delay inside loop can
-  delay response. Multiple bytes of data may be available.
-*/
-void serialEvent() {
-  while(Serial.available()) {
-    char inChar = (char)Serial.read();
-    if(inChar == 'A') {
-      Serial.println("Stopping");
-      int count = 0;
-      int left = Serial.available();
-      while(Serial.available()) {
-        Serial.read();
-        count++;
-      }
-      Serial.print("Left: ");
-      Serial.print(count);
-      Serial.print("\t");
-      Serial.println(left);
-      while(true) ;
-    } else if(inChar == '\n')
-      parseAndSend();
-    else
-      data += inChar;
-  }
 }
