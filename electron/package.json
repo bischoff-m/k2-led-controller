@@ -30,7 +30,7 @@
     "bl": "^4.0.3"
   },
   "devDependencies": {
-    "electron": "^7.1.7",
+    "electron": "^9.4.0",
     "electron-builder": "^22.2.0",
     "electron-rebuild": "^1.8.8"
   },
