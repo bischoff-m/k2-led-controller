@@ -8,7 +8,7 @@
 // Include**************************************
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include "RGBW_LED-Band_Treiber_def.h"
+#include "RGBW_LED-Band_Treiber_Def.h"
 #include "eye_correction.h"
 
 //#include "startup.c"
@@ -54,7 +54,7 @@ ISR(USART_RXC_vect){	// with 250 kBaut and 10Bit per canel all 40us
 //Funktionen************************************
 
 void PortConfig(void){
-	// Port A ist Eingang für DMX Kanal-wahl Bit0 bis Bit7; Bit8 ist PB0 ; Achtung: umgekehte Reihefolge
+	// Port A ist Eingang fï¿½r DMX Kanal-wahl Bit0 bis Bit7; Bit8 ist PB0 ; Achtung: umgekehte Reihefolge
 	DDRA = 		0x00;		// Complete Port A is Input
 	PORTA =		0xFF;		// Aktivate all internal Pull Up Resistors for PortA
 	
@@ -62,7 +62,7 @@ void PortConfig(void){
 	DDRB = 		PB_DDR;		// PWM_W (PB3=OC1) is output	
 	PORTB |=	PB_PULL_UP;	// S9 (PB0) activate Pull Up
 	
-	// Port C hat nur Ausgänge
+	// Port C hat nur Ausgï¿½nge
 	DDRC =		PC_DDR;		// Complete Port C is an output
 	PORTC |=	(1<<R_LED_YELLOW)|(1<<R_LED_GREEN)|(1<<L_LED_YELLOW)|(1<<L_LED_GREEN);	//LEDs off (= Pin high)
 	PORTC &=	~((1<<TWI_SDA)|(1<<TWI_SCL));		// Data lines low
@@ -140,7 +140,7 @@ void WriteDisplay(unsigned int channel) {
 	k =	0;
 	while(~(SREG & (1<<2))){	// ziehe so oft 100 ab, bis negativ
 		temp =	temp-100;
-		k++;					// zähle die abgezogenen 100er
+		k++;					// zï¿½hle die abgezogenen 100er
 	}
 	d2 =	k-1;				// in d2 stehen die ganzzahligen 100er
 	temp =	channel - (d2*100);	//ganzzahlige 100er anbziehen
@@ -294,7 +294,7 @@ int main(void) {
 			Rj45Leds();
 		}
 		
-		// Abfangen, falls kein DMX Kanal gewählt ist (dmxCannel = 0)
+		// Abfangen, falls kein DMX Kanal gewï¿½hlt ist (dmxCannel = 0)
 		if(dmxChannel ==0){
 			cli();	// Somit DMX off
 

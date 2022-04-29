@@ -1,0 +1,17 @@
+
+- Fragen
+	- Auf welchem Port liegt Dip-Schalter 10? Nicht angeschlossen?
+
+- DMX512 Timing
+	https://wiki.production-partner.de/licht/lichtsteuerung-mit-dmx-512/
+- Prozessor Taktfrequenz: 8MHz
+- Port Belegung
+	- Port A
+		0: Dip-Schalter 8
+		1: Dip-Schalter 7
+		2: Dip-Schalter 6
+		3: Dip-Schalter 5
+		4: Dip-Schalter 4
+		5: Dip-Schalter 3
+		6: Dip-Schalter 2
+		7: Dip-Schalter 1
